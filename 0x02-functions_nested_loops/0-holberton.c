@@ -1,10 +1,10 @@
 #include "holberton.h"
 int main(void)
 {
-	char c[] = "Holberton";
+	char c[] = "Holberton\n";
 	int i;
 
-	for (i = 0; i < 9; i++)
+	for (i = 0; i < 11; i++)
 	{
 		_putchar(c[i]);
 	}
