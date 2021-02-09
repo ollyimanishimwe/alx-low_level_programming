@@ -1,14 +1,12 @@
 #include "holberton.h"
-
 int main(void)
 {
-	int n = 0;
-	char str_hbt[9] = "Holberton";
+	char c[] = "Holberton";
+	int i;
 
-	while (n < 9)
+	for (i = 0; i < 9; i++)
 	{
-		_putchar(str_hbt[n]);
-		n += 1;
+		_putchar(c[i]);
 	}
 	_putchar('\n');
 	return (0);
