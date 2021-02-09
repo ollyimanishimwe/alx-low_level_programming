@@ -1,13 +1,10 @@
 #include "holberton.h"
+
 int main(void)
 {
-	char c[] = "Holberton\n";
-	int i;
+	char *holberton;
 
-	for (i = 0; i < 11; i++)
-	{
-		_putchar(c[i]);
-	}
-	_putchar('\n');
+	for (holberton = "Holberton\n"; *holberton != '\0'; ++holberton)
+		_putchar(*holberton);
 	return (0);
 }
