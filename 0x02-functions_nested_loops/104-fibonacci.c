@@ -1,30 +1,47 @@
+#include <limits.h>
+#include <math.h>
 #include <stdio.h>
 
 /**
- * natural - Write a program that computes and prints the sum of
- * all the multiples of 3 or 5 below 1024 (excluded)
- * @i: Integer
- * @r: Result
- * Return: On success 1.
+ * main - entry point
  *
+ * Return: Always 0.
  */
-
 int main(void)
 {
 	int i;
-	float a, b, r;
-	a = 1;
-	b = 2;
-	r= 0;
+	int j;
+	long a_lo = 1;
+	long b_lo = 2;
+	long a_hi = 0;
+	long b_hi = 0;
+	int limit_len = floor(log10(LONG_MAX / 2));
+	long limit = pow(10, limit_len);
 
-	printf("1, 2");
-	for(i = 1; i <= 96; i++)
+	for (i = 0; i < 98; ++i)
 	{
-		r = a + b;
-		a = b;
-		b = r;
-		printf(", %.0f",r);
+		if (a_hi)
+		{
+			printf("%ld", a_hi);
+			for (j = floor(log10(a_lo)) + 1; j < limit_len; ++j)
+				putchar('0');
+		}
+		printf("%ld", a_lo);
+		b_lo = b_lo + a_lo;
+		a_lo = b_lo - a_lo;
+		a_hi = b_hi - a_hi;
+		b_hi = b_hi + a_hi;
+		if (b_lo >= limit)
+		{
+			b_hi += b_lo / limit;
+			b_lo %= limit;
+			a_hi += a_lo / limit;
+			a_lo %= limit;
+		}
+		if (i < 97)
+			printf(", ");
 	}
 	putchar('\n');
+
 	return (0);
 }
