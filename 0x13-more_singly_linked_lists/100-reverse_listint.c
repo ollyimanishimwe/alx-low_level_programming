@@ -2,7 +2,8 @@
  * File: 100-reverse_listint.c
  * Auth: Brennan D Baraban
  */
-
+#include <stdio.h>
+#include <stdlib.h>
 #include "lists.h"
 
 /**
